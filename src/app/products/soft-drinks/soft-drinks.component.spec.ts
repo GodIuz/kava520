@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { OrangeJuiceComponent } from './orange-juice.component';
+import { SoftDrinksComponent } from './soft-drinks.component';
 
-describe('OrangeJuiceComponent', () => {
-  let component: OrangeJuiceComponent;
-  let fixture: ComponentFixture<OrangeJuiceComponent>;
+describe('SoftDrinksComponent', () => {
+  let component: SoftDrinksComponent;
+  let fixture: ComponentFixture<SoftDrinksComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [OrangeJuiceComponent]
+      imports: [SoftDrinksComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(OrangeJuiceComponent);
+    fixture = TestBed.createComponent(SoftDrinksComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

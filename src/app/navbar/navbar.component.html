@@ -1,44 +1,69 @@
-<nav class="navbar">
-  <div class="logo">
-    <span class="icon">🍷</span>
-    <span class="brand">Κάβα <strong>520</strong></span>
+<nav>
+  <div class="nav-container">
+    <div class="logo">
+      <a href="/home"><i class="fa-solid fa-wine-glass"></i> Κάβα 520</a>
+    </div>
+
+    <button class="menu-toggle" (click)="toggleMobileMenu()">
+      ☰
+    </button>
+
+    <ul [class.mobile-open]="isMobileMenuOpen">
+      <li><a href="/home">Αρχική</a></li>
+
+      <li class="dropdown">
+        <a href="javascript:void(0)" (click)="toggleMainDropdown()">Προϊόντα</a>
+
+        <ul class="dropdown-menu" *ngIf="isMainDropdownOpen">
+          <li class="sub-dropdown">
+            <a href="javascript:void(0)" (click)="toggleSubmenu('krasia')">Κρασιά</a>
+            <ul class="sub-menu" *ngIf="openSubmenu === 'krasia'">
+              <li><a href="/products/wines">Όλα τα Κρασιά</a></li>
+              <li><a href="/products/terra-vinea">Terra vinea</a></li>
+              <li><a href="/products/notos">Νότος</a></li>
+              <li><a href="/products/thivaiki-gi">Θηβαϊκη Γη</a></li>
+            </ul>
+          </li>
+
+          <li class="sub-dropdown">
+            <a href="javascript:void(0)" (click)="toggleSubmenu('anapsyktika')">Αναψυκτικά</a>
+            <ul class="sub-menu" *ngIf="openSubmenu === 'anapsyktika'">
+              <li><a href="/products/refreshments">Όλα τα Αναψυκτικά</a></li>
+              <li><a href="/products/mpyral">Μπυράλ</a></li>
+              <li><a href="/products/lemonada">Λεμονάδα</a></li>
+              <li><a href="/products/portokalada">Πορτοκαλάδα</a></li>
+              <li><a href="/products/gkazoza">Γκαζόζα</a></li>
+              <li><a href="/products/soda">Σόδα</a></li>
+              <li><a href="/products/mastixa-soda">Μαστίχα Σόδα</a></li>
+              <li><a href="/products/ice-tea-lemoni">Ice Tea Λεμόνι</a></li>
+              <li><a href="/products/ice-tea-rodakino">Ice Tea Ροδάκινο</a></li>
+              <li><a href="/products/green-tea-lemoni">Πράσινο Τσάι Λεμόνι</a></li>
+            </ul>
+          </li>
+
+          <li class="sub-dropdown">
+            <a href="javascript:void(0)" (click)="toggleSubmenu('pota')">Τσίπουρο - Ούζο</a>
+            <ul class="sub-menu" *ngIf="openSubmenu === 'pota'">
+              <li><a href="/products/tsipouro">Όλα τα Ποτά</a></li>
+              <li><a href="/products/whiskey">Αποστολάκη με</a></li>
+              <li><a href="/products/vodka">Αποστολάκη χωρίς</a></li>
+              <li><a href="/products/liqueur">Ούζο Αποστολάκη</a></li>
+            </ul>
+          </li>
+          <li class="sub-dropdown">
+            <a href="javascript:void(0)" (click)="toggleSubmenu('juices')">Χυμοί</a>
+            <ul class="sub-menu" *ngIf="openSubmenu === 'juices'">
+              <li><a href="/products/juices">Όλοι οι Χυμοί</a></li>
+              <li><a href="/products/orange">Πορτοκάλι</a></li>
+              <li><a href="/products/3-fruits">3 Φρούτα</a></li>
+              <li><a href="/products/10-fruits">10 Φρούτα</a></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+
+      <li><a href="/about">Σχετικά με εμάς</a></li>
+      <li><a href="/contact">Επικοινωνία</a></li>
+    </ul>
   </div>
-  <ul class="nav-links">
-    <li><a routerLink="/" routerLinkActive="active">Αρχική</a></li>
-    <li class="dropdown">
-      <a href="/products">Προϊόντα </a>
-      <ul class="dropdown-menu">
-        <li class="submenu">
-          <a href="#">Κρασιά</a>
-          <ul class="dropdown-submenu">
-            <li><a routerLink="/products/red-wine">Κόκκινα</a></li>
-            <li><a routerLink="/products/white-wine">Λευκά</a></li>
-          </ul>
-        </li>
-        <li class="submenu">
-          <a href="#">Αναψυκτικά</a>
-          <ul class="dropdown-submenu">
-            <li><a routerLink="/products/mpyral">Μπυράλ</a></li>
-            <li><a routerLink="/products/gκazoza">Γκαζόζα</a></li>
-            <li><a routerLink="/products/lemonadα">Λεμονάδα</a></li>
-            <li><a routerLink="/products/portokalada">Πορτοκαλάδα</a></li>
-            <li><a routerLink="/products/soda">Σόδα</a></li>
-            <li><a routerLink="/products/ice-tea-lemoni">Ice Tea Λεμόνι</a></li>
-            <li><a routerLink="/products/ice-tea-rodakino">Ice Tea Ροδάκινο</a></li>
-            <li><a routerLink="/products/green-tea-lemoni">Πράσινο Τσάι Λεμόνι</a></li>
-            <li><a routerLink="/products/mastixa-soda">Mαστίχα Σόδα</a></li>
-          </ul>
-        </li>
-        <li class="submenu">
-          <a href="#">Χυμοί</a>
-          <ul class="dropdown-submenu">
-            <li><a routerLink="/products/orange-juice">Πορτοκάλι</a></li>
-            <li><a routerLink="/products/3-fruits-juice">3 Φρούτα</a></li>
-            <li><a routerLink="/products/10-fruits-juice">10 Φρούτα</a></li>
-          </ul>
-      </ul>
-    </li>
-    <li><a routerLink="/about">Σχετικά με εμάς</a></li>
-    <li><a routerLink="/contact">Επικοινωνία</a></li>
-  </ul>
 </nav>
